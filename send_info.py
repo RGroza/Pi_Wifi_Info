@@ -28,7 +28,7 @@ def send_email(text):
     html_content=text)
 
     try:
-        sg = SendGridAPIClient('<API key>')
+        sg = SendGridAPIClient('<API Key>')
         response = sg.send(message)
         print(response.status_code)
         print(response.body)
