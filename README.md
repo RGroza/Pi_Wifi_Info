@@ -41,7 +41,7 @@ Windows:
 Mac:
     Command + Shift + V  OR  Right Click and paste in nano editor
 
-Insert your email in the "from_email" and "to_emails" parameters, and insert your API Key into `sg = SendGridAPIClient('<API Key>')`
+Insert your email in the `from_email='<your email address>'` and `to_emails='<your email address>'` parameters, and insert your API Key into `sg = SendGridAPIClient('<API Key>')`
 
 Run the program to see if it is able to send an email to your inbox:
 
