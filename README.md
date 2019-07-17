@@ -38,7 +38,7 @@ Copy the code from "send_info.py" in this repository and paste it into nano usin
 Windows:
     Ctrl + Shift + V  OR  Shift + Insert  OR  Right Click in nano editor
 
-MAC:
+Mac:
     Command + Shift + V  OR  Right Click and paste in nano editor
 
 Insert your email in the "from_email" and "to_emails" parameters, and insert your API Key into `sg = SendGridAPIClient('<API Key>')`
