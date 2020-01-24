@@ -1,7 +1,11 @@
 # Pi_Wifi_Info
 
+This GitHub repository contains code for accessing your Raspberry Pi's IP Address, Gateway Address, and your Hostname, and it is able to send an email with those credentials to your inbox. This saves time when wanting to establish a headless connection with your Raspberry Pi using your IP Address, which is prone to changing on your network. Please follow the guide below to setup the emailing service for your Raspberry Pi.
+
 Create a SendGrid Account
 -------------------------
+
+This program requires the SendGrid API to function. SendGrid is an email marketing service that is used by many businesses to automatically send emails to their recipients. This allows the program to send an email using your email account without needing to store your credentials in your Raspberry Pi.
 
 Create a SendGrid account `https://signup.sendgrid.com` and login to your SendGrid dashboard.
 
@@ -13,17 +17,34 @@ Click on the "Settings" dropdown menu on the left hand side and then on "API Key
 SSH Headless Configuration
 --------------------------
 
-If you don't have access to a monitor, it is advised to use a network that you can easily access your Pi's IP Address (either on the class's TP-Link router or your home network). Insert the Pi's SD Card into your computer and copy the two files from the "ssh setup" folder of this repository. Change the ssid of the wpa_supplicant.conf file to the Wifi name and add a password if necessary after the ssid: `psk="<password>"`
+If you don't have access to a monitor and a keyboard, it is advised to use a network that you can easily access your Pi's IP Address (possibly your home network). Insert the Pi's SD Card into your computer and copy the two files from the "ssh setup" folder of this repository. Change the ssid of the wpa_supplicant.conf file to the Wifi name and add a password if necessary after the ssid: `psk="<password>"`
 
 Install Packages
----------------
+----------------
+
+These are the necessary packages that need to be installed before being able to run the program.
 
     sudo pip install python_http_client
     
     sudo pip install sendgrid
+
+Clone the Repository
+--------------------
+
+Navigate to the desired directory on the Pi and enter the command:
+
+    clone https://github.com/RGroza/Pi_Wifi_Info.git
+
+Once the cloning process has finish, check for the folder by using:
+
+    ls
     
-Quickstart
-----------
+And navigate into the folder using:
+
+    cd Pi_Wifi_Info
+
+Manual Setup (not needed if cloning is successful)
+--------------------------------------------------
 
 Navigte to your desired directory and create a file on your Raspberry Pi's current directory called "send_info.py" using:
 
@@ -40,6 +61,9 @@ Windows:
 
 Mac:
     Command + Shift + V  OR  Right Click and paste in nano editor
+
+Setup and Run
+-------------
 
 Insert your email in the `from_email='<your email address>'` and `to_emails='<your email address>'` parameters, and insert your API Key into `sg = SendGridAPIClient('<API Key>')`
 
@@ -65,5 +89,3 @@ To test your configuration change, simply reboot the pi:
     sudo reboot
 
 Remember that the first few emails that are sent to your inbox might be flagged as spam, so it is advised to check your spam folder and mark them as being genuine.
-
-Change your Pi's network connection to MIT GUEST if you haven't already and boot the Pi to test if the email service is working correctly.
