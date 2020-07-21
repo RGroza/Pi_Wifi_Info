@@ -15,6 +15,16 @@ def get_device_ip_address():
         gateway = gw[2]
         host = socket.gethostname()
         result = "OS: Raspbian<br/>IP: " + ipaddr + "<br/>Gateway: " + gateway + "<br/>Host: " + host
+
+        with open("/home/pi/Pi_Wifi_Info/ipaddr.txt", "r") as f:
+            current_ip = f.readlines()[-1]
+
+        if current_ip == ipaddr:
+            return None
+        else:
+            with open("/home/pi/Pi_Wifi_Info/ipaddr.txt", "a") as f:
+                f.write("\n{}".format(ipaddr))
+
         return result
     except:
         return "Could not detect ip address"
@@ -37,8 +47,9 @@ def send_email(text):
         print(e.message)
 
 message = get_device_ip_address()
-print("Sending email, can take a while.")
-send_email(message)
-print("Done.")
+if message != None:
+    print("Sending email, can take a while.")
+    send_email(message)
+    print("Done.")
 
 sys.exit()
