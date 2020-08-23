@@ -17,7 +17,7 @@ Click on the "Settings" dropdown menu on the left hand side and then on "API Key
 SSH Headless Configuration
 --------------------------
 
-If you don't have access to a monitor and a keyboard, it is advised to use a network that you can easily access your Pi's IP Address (possibly your home network). Insert the Pi's SD Card into your computer and copy the two files from the "ssh setup" folder of this repository. Change the ssid of the wpa_supplicant.conf file to the Wifi name and add a password if necessary after the ssid: `psk="<password>"`
+If you don't have access to a monitor and a keyboard, it is advised to use a network that you can easily access your Pi's IP Address (possibly your home network). Insert the Pi's SD Card into your computer and copy the two files from the "ssh_setup" folder of this repository. Change the ssid of the wpa_supplicant.conf file to the Wifi name and add a password if necessary after the ssid: `psk="<password>"`
 
 Install Packages
 ----------------
