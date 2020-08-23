@@ -82,7 +82,7 @@ To execute the script on every reboot, you need to add the python app to the `rc
 
 Add the following command before `end 0` in the file and insert your file path where indicated:
 
-    (sleep 30; python <INSERT FILE PATH>/send_info.py)&
+    (sleep 15; python <INSERT FILE PATH>/send_info.py)&
 
 To test your configuration change, simply reboot the pi:
 
